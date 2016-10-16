@@ -54,9 +54,11 @@
 
 
             <button id="ac" class="operators clear text-btns"
-            type="reset" name="all-clear" onClick="history.go(0)">AC</button>
+            type="reset" name="all-clear" onClick="window.location.reload()">AC</button>
             <button id="c" class="operators clear text-btns"
             type="button" name="clear" onClick="onClear()">C</button>
+            <button id="+/-" class="operators clear text-btns"
+            type="button" name="+/-" onClick="switchPosNeg()">+/-</button>
             <button id="equals" class="operators equals text-btns"
             type="button" name="equals" onClick="onEquals()">=</button>
           <!-- </form> -->
