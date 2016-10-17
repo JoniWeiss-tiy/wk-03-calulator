@@ -60,11 +60,14 @@ function onEquals() {
 
 function onClear () {
   let inputArr = formInputStr.split(' ');
-  let itemToClear = inputArr.length - 1;
-  inputArr.splice(itemToClear,1);
-  // Add extra space at end of string for
-  formInputStr = inputArr.join(' ') + ' ';
-  updateDisplay(formInputStr, "replace");
+  if (inputArr.length > 1) {
+    inputArr.splice(inputArr.length-1,1);
+    // Add extra space at end of string for
+    formInputStr = inputArr.join(' ') + ' ';
+  } else {
+    formInputStr = '0'; // Reset for next calc
+  }
+  updateDisplay(formInputStr,"replace");
 }
 
 function calculator (num1, num2, cb) {

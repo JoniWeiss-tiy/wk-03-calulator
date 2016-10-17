@@ -12,8 +12,10 @@ html {
 }
 
 body {
-  width: 50%;
-  max-width: 300px;
+  // For small devices. @media for larger
+  width: 100vw;
+  // For small devices. @media for larger
+  max-width: 100vw;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -89,12 +91,12 @@ button {
 
 }
 
-button.operators  {
+button.orange  {
   background-color: #ff8c00;
   color: #e0e0e0;
 }
 
-button.numbers {
+button.white {
   background-color: #e0e0e0;
 
 }
@@ -106,4 +108,18 @@ button:last-child {
 
 .text-btns {
   font-weight: normal;
+}
+
+.hide-on-sm {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .hide-on-sm {
+    display: inherit;
+  }
+  body {
+    width: 50%;
+    max-width: 300px;
+  }
 }
