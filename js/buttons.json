@@ -1,0 +1,42 @@
+const idObj = {
+  "one"   : {
+    "num":  1,
+    "type": "num"
+  },
+  "two"   : {
+    "num":  2,
+    "type": "num"
+  },
+  "three" : {
+    "num":  3,
+    "type": "num"
+  },
+  "four" : {
+    "num":  4,
+    "type": "num"
+  },
+  "five" : {
+    "num":  5,
+    "type": "num"
+  },
+  "six" : {
+    "num":  6,
+    "type": "num"
+  },
+  "seven" : {
+    "num":  7,
+    "type": "num"
+  },
+  "eight" : {
+    "num":  8,
+    "type": "num"
+  },
+  "nine" : {
+    "num":  9,
+    "type": "num"
+  },
+  "zero" : {
+    "num":  0,
+    "type": "num"
+  }
+}

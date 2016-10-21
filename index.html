@@ -15,58 +15,57 @@
           <h2 id="display"></h2>
         </section>
         <section class="calc-form-container">
-            <button id="7" class="white"
-            type="button" name="seven" onClick="onNumClick(this.id)">7</button>
-            <button id="8" class="white"
-            type="button" name="eight" onClick="onNumClick(this.id)">8</button>
-            <button id="9" class="white"
-            type="button" name="nine" onClick="onNumClick(this.id)">9</button>
-            <button id="add" class="orange"
-            type="button" name="add" onClick="onOpClick(this.id)">+</button>
+            <button id="7" class="num white"
+            type="button" name="seven" onclick="calc.onNumClick(this.id)">7</button>
+            <button id="8" class="num white"
+            type="button" name="eight" onclick="calc.onNumClick(this.id)">8</button>
+            <button id="9" class="num white"
+            type="button" name="nine" onclick="calc.onNumClick(this.id)">9</button>
+            <button id="add" class="op orange"
+            type="button" name="add" onclick="calc.onOpClick(this.id)">+</button>
 
-            <button id="4" class="white"
-            type="button" name="four" onClick="onNumClick(this.id)">4</button>
-            <button id="5" class="white"
-            type="button" name="five" onClick="onNumClick(this.id)">5</button>
-            <button id="6" class="white"
-            type="button" name="six" onClick="onNumClick(this.id)">6</button>
-            <button id="subtract" class="orange"
-            type="button" name="subtract" onClick="onOpClick(this.id)">-</button>
+            <button id="4" class="num white"
+            type="button" name="four" onclick="calc.onNumClick(this.id)">4</button>
+            <button id="5" class="num white"
+            type="button" name="five" onclick="calc.onNumClick(this.id)">5</button>
+            <button id="6" class="num white"
+            type="button" name="six" onclick="calc.onNumClick(this.id)">6</button>
+            <button id="subtract" class="op orange"
+            type="button" name="subtract" onclick="calc.onOpClick(this.id)">-</button>
 
-            <button id="1" class="white"
-            type="button" name="one" onClick="onNumClick(this.id)">1</button>
-            <button id="2" class="white"
-            type="button" name="two" onClick="onNumClick(this.id)">2</button>
-            <button id="3" class="white"
-            type="button" name="three" onClick="onNumClick(this.id)">3</button>
+            <button id="1" class="num white"
+            type="button" name="one" onclick="calc.onNumClick(this.id)">1</button>
+            <button id="2" class="num white"
+            type="button" name="two" onclick="calc.onNumClick(this.id)">2</button>
+            <button id="3" class="num white"
+            type="button" name="three" onclick="calc.onNumClick(this.id)">3</button>
             <button id="multiply" class="orange"
-            type="button" name="multiply" onClick="onOpClick(this.id)">*</button>
-            <button id="." class="white"
-            type="button" name="dot" onClick="onNumClick(this.id)">.</button>
+            type="button" name="multiply" onclick="calc.onOpClick(this.id)">*</button>
+            <button id="." class="num white"
+            type="button" name="dot" onclick="calc.onNumClick(this.id)">.</button>
 
-            <button id="0" class="white"
-            type="button" name="zero" onClick="onNumClick(this.id)">0</button>
-            <button id="divide" class="orange"
-            type="button" name="divide" onClick="onOpClick(this.id)">/</button>
-            <button id="mod" class="orange text-btns"
-            type="button" name="mod" onClick="onOpClick(this.id)">mod</button>
+            <button id="0" class="num white"
+            type="button" name="zero" onclick="calc.onNumClick(this.id)">0</button>
+            <button id="divide" class="op orange"
+            type="button" name="divide" onclick="calc.onOpClick(this.id)">/</button>
+            <button id="mod" class="op orange text-btns"
+            type="button" name="mod" onclick="calc.onOpClick(this.id)">mod</button>
 
-
-            <button id="3.14" class="orange hide-on-sm"
-            type="button" name="pi" onClick="onNumClick(this.id)">&#960;</button>
-            <button id="2.72" class="orange hide-on-sm"
-            type="button" name="e" onClick="onNumClick(this.id)">e</button>
+            <button id="3.14" class="num orange hide-on-sm"
+            type="button" name="pi" onclick="calc.onNumClick(this.id)">&#960;</button>
+            <button id="2.72" class="num orange hide-on-sm"
+            type="button" name="e" onclick="calc.onNumClick(this.id)">e</button>
             <button id="ac" class="orange text-btns"
-            type="reset" name="all-clear" onClick="window.location.reload()">AC</button>
+            type="reset" name="all-clear" onclick="window.location.reload()">AC</button>
             <button id="c" class="orange text-btns"
-            type="button" name="clear" onClick="onClear()">C</button>
-            <button id="+/-" class="orange text-btns"
-            type="button" name="+/-" onClick="switchPosNeg()">+/-</button>
+            type="button" name="clear" onclick="calc.onClear()">C</button>
+            <button id="+/-" class="op orange text-btns"
+            type="button" name="+/-" onclick="calc.switchPosNeg()">+/-</button>
             <button id="equals" class="orange text-btns"
-            type="button" name="equals" onClick="onEquals()">=</button>
-
+            type="button" name="equals" onclick="calc.onEquals()">=</button>
         </section>
       </div>
-      <script type="text/javascript" src=js/calc.js></script>
+      <script src="./js/buttons.json"></script>
+      <script type="text/javascript" src="./js/calc.js"></script>
     </body>
 </html>

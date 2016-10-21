@@ -2,8 +2,24 @@
 console.clear();
 console.log("Begin:", document.title);
 
+let calc = (function() {
+
 let formInputStr = ''; //Set initial
 // let formInputArr = []; //Set initial
+
+
+function myOnClick () {
+  console.log('idObj: ', idObj);
+  var numArr = [].slice.call(
+    document.getElementsByClassName('num')
+    ).map((obj) => obj.id);
+  var opArr = [].slice.call(
+    document.getElementsByClassName('op')
+    ).map((obj) => obj.id);
+
+  console.log("numArr: ", numArr);
+  console.log("opArr: ", opArr);
+}
 
 function updateDisplay (str,updType) {
   if ( updType === "append") {
@@ -71,7 +87,7 @@ function onClear () {
 }
 
 function calculator (num1, num2, cb) {
-  return window[cb](num1,num2);
+  return cb(num1,num2);
 };
 
 function add (num1, num2) {
@@ -97,3 +113,17 @@ function mod (num1, num2) {
 function pct (num1, num2) {
   return num1 % num2;
 };
+
+return {
+  onNumClick: onNumClick,
+  onOpClick: onOpClick,
+  switchPosNeg: switchPosNeg,
+  onEquals: onEquals,
+  onClear: onClear,
+  myOnClick: myOnClick
+};
+
+})();
+
+
+window.onload = calc.myOnClick();

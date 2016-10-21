@@ -43,7 +43,7 @@ h2#display {
 
 header {
   background-color: lightblue;
-  box-shadow: 0 0 0 1px #4c4c4c inset;
+  box-shadow: 0 0 0 5px #4c4c4c inset;
   width: 100%;
   height: auto;
   display: flex;
@@ -55,7 +55,7 @@ header {
 
 section.display-container {
   background-color: lightblue;
-  box-shadow: 0 0 0 1px #4c4c4c inset;
+  box-shadow: 0 0 0 5px #4c4c4c inset;
   width: 100%;
   height: auto;
   text-align: right;
@@ -81,14 +81,21 @@ section.calc-form-container {
 }
 
 button {
-  box-shadow: 0 0 0 1px #4c4c4c inset;
+  box-shadow: 0 0 0 5px #4c4c4c inset;
   width: 25%;
-  height: auto;
+  height: 2.5em;
   border: none;
   line-height: 2em;
   font-size: 1.5em;
   text-align: center;
+}
 
+button:hover {
+  box-shadow: 0 0 0 2px blue inset;
+}
+
+button:active {
+  box-shadow: 0 0 0 5px blue inset;
 }
 
 button.orange  {
@@ -114,12 +121,12 @@ button:last-child {
   display: none;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px) {
   .hide-on-sm {
     display: inherit;
   }
   body {
     width: 50%;
-    max-width: 300px;
+    max-width: 550px;
   }
 }
