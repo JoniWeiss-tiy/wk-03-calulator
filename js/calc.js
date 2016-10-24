@@ -1,25 +1,31 @@
 "use strict";
+
 console.clear();
 console.log("Begin:", document.title);
 
 let calc = (function() {
 
 let formInputStr = ''; //Set initial
-// let formInputArr = []; //Set initial
 
+let buttonWatchers = (function() {
 
-function myOnClick () {
-  console.log('idObj: ', idObj);
   var numArr = [].slice.call(
     document.getElementsByClassName('num')
-    ).map((obj) => obj.id);
+  ).map((obj) => obj.id).sort();
   var opArr = [].slice.call(
     document.getElementsByClassName('op')
-    ).map((obj) => obj.id);
+  ).map((obj) => obj.id).sort();
 
-  console.log("numArr: ", numArr);
-  console.log("opArr: ", opArr);
-}
+  numArr.forEach(function(val){
+      var button = document.getElementById(val);
+      button.onclick = onNumClick;
+    });
+
+  opArr.forEach(function(val){
+      var button = document.getElementById(val);
+      button.onclick = onOpClick;
+    });
+})();
 
 function updateDisplay (str,updType) {
   if ( updType === "append") {
@@ -33,30 +39,45 @@ function updateDisplay (str,updType) {
 //Init Display
 updateDisplay(0,"replace");
 
-function onNumClick(id) {
+function onNumClick() {
   if (formInputStr.length === 0) {
     updateDisplay('',"replace");
   }
-  let numStr = id;
+  let numStr = this.id;
   formInputStr += numStr;
   updateDisplay(numStr, "append");
 }
 
-function onOpClick(id) {
-  let opStr = ' ' + id + ' ';
+function onOpClick() {
+  let opStr = ' ' + this.id + ' ';
   formInputStr +=  opStr;
   updateDisplay(opStr, "append");
 }
 
+function calcPct(id) {
+  let inputArr = formInputStr.split(' ');
+  let idx = inputArr.length - 1;
+
+  let numStr = Number(inputArr[idx]);
+
+  numStr /= 100;
+
+  inputArr[idx] = numStr;
+  formInputStr = inputArr.join(' ');
+
+  // Add extra space at end of string for
+  updateDisplay(formInputStr, "replace");
+}
+
 function switchPosNeg(id) {
   let inputArr = formInputStr.split(' ');
-  let lastItem = inputArr.length - 1;
+  let idx = inputArr.length - 1;
 
-  let numStr = Number(inputArr[inputArr.length-1]);
+  let numStr = Number(inputArr[idx]);
 
   numStr *= -1;
 
-  inputArr[inputArr.length-1] = numStr;
+  inputArr[idx] = numStr;
   formInputStr = inputArr.join(' ');
 
   // Add extra space at end of string for
@@ -69,8 +90,9 @@ function onEquals() {
   let n1 = Number(inputArr[0]);
   let n2 = Number(inputArr[2]);
   let op = inputArr[1];
+  console.log(n1, n2, op);
   //calculator (num1, num2, cb)
-  let result = calculator(n1,n2,op);
+  let result = calculator(n1,n2,opSelector(op));
   updateDisplay(result, "replace");
 }
 
@@ -85,10 +107,6 @@ function onClear () {
   }
   updateDisplay(formInputStr,"replace");
 }
-
-function calculator (num1, num2, cb) {
-  return cb(num1,num2);
-};
 
 function add (num1, num2) {
   return num1 + num2;
@@ -110,9 +128,19 @@ function mod (num1, num2) {
   return num1 % num2;
 };
 
-function pct (num1, num2) {
-  return num1 % num2;
+function calculator (num1, num2, cb) {
+  return cb(num1,num2);
 };
+
+let op = {
+  "+": add,
+  "-": subtract,
+  "*": multiply,
+  "/": divide,
+  "mod": mod
+}
+
+const opSelector = (cb) => op[cb];
 
 return {
   onNumClick: onNumClick,
@@ -120,10 +148,7 @@ return {
   switchPosNeg: switchPosNeg,
   onEquals: onEquals,
   onClear: onClear,
-  myOnClick: myOnClick
+  calcPct: calcPct
 };
 
 })();
-
-
-window.onload = calc.myOnClick();
