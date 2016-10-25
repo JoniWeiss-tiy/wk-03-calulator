@@ -12,8 +12,13 @@ let buttonWatchers = (function() {
   var numArr = [].slice.call(
     document.getElementsByClassName('num')
   ).map((obj) => obj.id).sort();
+
   var opArr = [].slice.call(
     document.getElementsByClassName('op')
+  ).map((obj) => obj.id).sort();
+
+  var imOpArr = [].slice.call(
+    document.getElementsByClassName('imediate-op')
   ).map((obj) => obj.id).sort();
 
   numArr.forEach(function(val){
@@ -24,6 +29,11 @@ let buttonWatchers = (function() {
   opArr.forEach(function(val){
       var button = document.getElementById(val);
       button.onclick = onOpClick;
+    });
+
+  imOpArr.forEach(function(val){
+      var button = document.getElementById(val);
+      button.onclick = onImOpClick;
     });
 })();
 
@@ -54,28 +64,26 @@ function onOpClick() {
   updateDisplay(opStr, "append");
 }
 
-function calcPct(id) {
+function onImOpClick() {
   let inputArr = formInputStr.split(' ');
   let idx = inputArr.length - 1;
 
   let numStr = Number(inputArr[idx]);
 
-  numStr /= 100;
-
-  inputArr[idx] = numStr;
-  formInputStr = inputArr.join(' ');
-
-  // Add extra space at end of string for
-  updateDisplay(formInputStr, "replace");
-}
-
-function switchPosNeg(id) {
-  let inputArr = formInputStr.split(' ');
-  let idx = inputArr.length - 1;
-
-  let numStr = Number(inputArr[idx]);
-
-  numStr *= -1;
+  switch(this.id) {
+    case "pct":
+      numStr /= 100;
+      break;
+    case "^2":
+      numStr = numStr * numStr;
+      break;
+    case "^3":
+      numStr = numStr * numStr * numStr;
+      break;
+    case "+/-":
+      numStr *= -1;
+      break;
+  };
 
   inputArr[idx] = numStr;
   formInputStr = inputArr.join(' ');
@@ -143,12 +151,8 @@ let op = {
 const opSelector = (cb) => op[cb];
 
 return {
-  onNumClick: onNumClick,
-  onOpClick: onOpClick,
-  switchPosNeg: switchPosNeg,
   onEquals: onEquals,
-  onClear: onClear,
-  calcPct: calcPct
+  onClear: onClear
 };
 
 })();

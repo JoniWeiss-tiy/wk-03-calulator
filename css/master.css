@@ -82,6 +82,7 @@ section.calc-form-container {
 
 button {
   box-shadow: 0 0 0 5px #4c4c4c inset;
+  white-space: nowrap;
   width: 25%;
   height: 2.5em;
   border: none;
@@ -99,29 +100,27 @@ button:active {
 }
 
 button.orange  {
-  background-color: #ff8c00;
+  background-color: #f37f26;
   color: #e0e0e0;
 }
 
 button.white {
-  background-color: #e0e0e0;
+  background-color: #d9d9d9;
+}
 
+button.dark-white {
+  background-color: #cdcdcd;
 }
 
 button:last-child {
   flex-grow: 3;
 }
 
-
-.text-btns {
-  font-weight: normal;
-}
-
 .hide-on-sm {
   display: none;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 600px) {
   .hide-on-sm {
     display: inherit;
   }

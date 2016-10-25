@@ -9,7 +9,7 @@
     <body>
       <div class="container">
         <header>
-          <h1>My Awesome Calculator</h1>
+          <h1>Joni Calc</h1>
         </header>
         <section class="display-container">
           <h2 id="display"></h2>
@@ -46,19 +46,23 @@
 
             <button id="0" class="num white"
             type="button" name="zero">0</button>
+            <button id="+/-" class="imediate-op dark-white text-btns"
+            type="button" name="+/-">+/-</button>
             <button id="/" class="op orange"
             type="button" name="divide">/</button>
+
+            <button id="3.14159" class="num dark-white hide-on-sm"
+            type="button" name="pi">&#960;</button>
+            <button id="2.72" class="num dark-white hide-on-sm"
+            type="button" name="e">e</button>
+            <button id="pct" class="imediate-op dark-white text-btns"
+            type="button" name="pct">%</button>
             <button id="mod" class="op orange text-btns"
             type="button" name="mod">mod</button>
-
-            <button id="3.14159" class="num orange hide-on-sm"
-            type="button" name="pi">&#960;</button>
-            <button id="2.72" class="num orange hide-on-sm"
-            type="button" name="e">e</button>
-            <button id="pct" class="orange text-btns"
-            type="button" name="pct" onclick="calc.calcPct()">%</button>
-            <button id="+/-" class="orange text-btns"
-            type="button" name="+/-" onclick="calc.switchPosNeg()">+/-</button>
+            <button id="^2" class="imediate-op dark-white hide-on-sm"
+            type="button" name="^2"><small>x<sup>2</sup></small></button>
+            <button id="^3" class="imediate-op dark-white hide-on-sm"
+            type="button" name="^3"><small>x<sup>3</sup></small></button>
             <button id="c" class="orange text-btns"
             type="button" name="clear" onclick="calc.onClear()">C</button>
             <button id="ac" class="orange text-btns"
